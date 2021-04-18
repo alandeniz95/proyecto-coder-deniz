@@ -1,0 +1,35 @@
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .logo-name{
+    display: flex;
+    .logo{
+      width: 60px;
+      height: 60px;
+    }
+  }
+  ul{
+    display: flex;
+    flex-direction: row;
+    li{
+      flex-direction: row;
+      padding: 10px;
+      list-style: none;
+    }
+  }
+  .cart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    .cart-icon{
+      width: 32px;
+    }
+    .cart-quantity{
+      font-size: 20px;
+    }
+  }
+}
+  
+  

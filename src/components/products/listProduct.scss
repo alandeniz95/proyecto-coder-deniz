@@ -1,0 +1,16 @@
+.itemList{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+ img{
+   width: 500px;
+   height: 350px;
+  }
+  h2{
+    width: 120px;
+  }
+  .description{
+   width: 800px;
+   margin-top: 80px;
+ }
+}
