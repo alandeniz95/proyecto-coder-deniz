@@ -1,20 +1,13 @@
-import {Navbar} from './components/navbar/navbar'
-import {ItemListContainer} from './components/listContainer/itemListContainer'
-
+import { Navbar } from "./components/navbar/navbar";
+import { ItemListContainer } from "./components/listContainer/itemListContainer";
+import { ItemCount } from "./components/itemCount/itemCount";
 
 function App() {
-  const NAVIGATION = [
-    'Home',
-    'Galería',
-    'Productos',
-    'Contacto',
-  ]
-  
   return (
     <div className="App">
-      <Navbar navigation={NAVIGATION}/>
-      <hr/>
-      <ItemListContainer/>
+      <Navbar />
+      <hr />
+      <ItemListContainer />
     </div>
   );
 }

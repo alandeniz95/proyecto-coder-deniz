@@ -1,12 +1,16 @@
-import './listProduct.scss'
-export const Products = (props) =>{
+import "./listProduct.scss";
+import { ItemCount } from "../itemCount/itemCount";
 
-  return(
+export const Products = (props) => {
+  return (
     <div className="itemList">
-      <img src={props.image}/>
+      <img src={props.image} />
       <h2>{props.title}</h2>
       <p className="description">{props.description}</p>
-      <strong><p>${props.price}</p></strong>
+      <strong>
+        <p>${props.price}</p>
+      </strong>
+      <ItemCount />
     </div>
-  )
-}
+  );
+};
