@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./itemCount.scss";
+
 export const ItemCount = () => {
   const [number, setNumber] = useState(1);
   const stock = 10;
@@ -22,10 +23,16 @@ export const ItemCount = () => {
 
   return (
     <div className="formCart">
-      <button className="btn" onClick={onAdd}>+</button>
+      <button className="btn" onClick={onAdd}>
+        +
+      </button>
       <input type="text" value={number} />
-      <button className="btn" onClick={remove}>-</button>
-      <button className="addToCart"onClick={addToCart}>Add to cart</button>
+      <button className="btn" onClick={remove}>
+        -
+      </button>
+      <button className="addToCart" onClick={addToCart}>
+        Add to cart
+      </button>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Products } from "../products/listProduct";
-// import { Item } from "../items/items"
+import { ItemList } from "../ItemList/ItemList"
+
 
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([
@@ -40,18 +40,11 @@ export const ItemListContainer = () => {
 
   return (
     <div>
-      <div className="itemList">
-        {products.map((product) => (
-          <Products
-          stock={product.stock}
-          title={product.title}
-          image={product.image}
-          price={product.price}
-          description={product.description}
-          />
-        ))}
+      <div className="">
+      <h1>Productos en stock</h1>
+      <hr/>
+        <ItemList />
       </div>
-      {/* <Item /> */}
     </div>
   );
 };
