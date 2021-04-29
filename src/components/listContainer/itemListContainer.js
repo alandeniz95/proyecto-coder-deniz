@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Products } from "../products/listProduct";
+// import { Item } from "../items/items"
 
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([
@@ -50,6 +51,7 @@ export const ItemListContainer = () => {
           />
         ))}
       </div>
+      {/* <Item /> */}
     </div>
   );
 };
