@@ -1,35 +1,34 @@
-import { useState } from "react";
-import { Items } from "../items/items"
+import { useEffect, useState } from "react";
+import "./itemList.scss"
 
 export const ItemList = () => {
   const [products, setProducts] = useState([]);
 
-
-  const showProducts = async () => {
-    const searchProduct = async (product) => {
-      try {
-        const res = await fetch(
-          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${product}`
-        );
-        const bodyRes = res.json();
-        return bodyRes;
-      } catch (error) {
-        console.error(error);
-      }
+  useEffect(() => {
+    const getProducts = async () => {
+      const res = await fetch(
+        "https://challenge-meli-backend.herokuapp.com/api/items?q=jardin"
+      );
+      const products = await res.json();
+      console.log(products.items);
+      setProducts(products.items);
     };
-    const myProduct = await searchProduct("gin");
-    setProducts(myProduct.drinks);
-  };
-  showProducts();
-
+    getProducts();
+  }, []);
   return (
-    <div className="App">
-      {products.length > 0 ? (
-        products.map((product) =>
-          products.map((product) => <Items product={product} />)
-        )
+    <div className="catalog">
+      {products.length < 1 ? (
+        <p className="loadProduct">Cargando productos...</p>
       ) : (
-        <p>Cargando productos...</p>
+        products.map((products) => (
+          <p>
+            
+            <strong><i><big>{products.title}</big></i></strong>
+            <br />
+            <strong>Condición</strong> "{products.condition}" 
+            <br /> <strong>Precio $ </strong>{products.price.amount}
+          </p>
+        ))
       )}
     </div>
   );
