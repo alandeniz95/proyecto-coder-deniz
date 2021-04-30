@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./itemList.scss"
+import "./itemList.scss";
 
 export const ItemList = () => {
   const [products, setProducts] = useState([]);
@@ -21,13 +21,20 @@ export const ItemList = () => {
         <p className="loadProduct">Cargando productos...</p>
       ) : (
         products.map((products) => (
-          <p>
-            
-            <strong><i><big>{products.title}</big></i></strong>
-            <br />
-            <strong>Condición</strong> "{products.condition}" 
-            <br /> <strong>Precio $ </strong>{products.price.amount}
-          </p>
+          <div>
+            <img src={products.picture}></img>
+            <p>
+              <strong>
+                <i>
+                  <big>{products.title}</big>
+                </i>
+              </strong>
+              <br />
+              <strong>Condición</strong> "{products.condition}"
+              <br /> <strong>Precio $ </strong>
+              {products.price.amount}
+            </p>
+          </div>
         ))
       )}
     </div>
