@@ -1,18 +1,17 @@
 import "./items.scss";
+//import { ItemCount } from "../itemCount/itemCount"
+
 export const Items = (props) => {
   return (
-    <div>
-      <img src={props.products.picture}></img>
-      <p>
+    <div className="items">
+      <img src={props.picture} />
+      <p className="title">
         <strong>
           <i>
-            <big>{props.products.title}</big>
+            <big >{props.title}</big>
           </i>
         </strong>
-        <br />
-        <strong>Condición</strong> "{props.products.condition}"
-        <br /> <strong>Precio $ </strong>
-        {props.products.price.amount}
+        <br /> <strong>Precio $ {props.price.amount}</strong>
       </p>
     </div>
   );

@@ -5,8 +5,13 @@
   .logo-name{
     display: flex;
     .logo{
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
+      margin: 20px;
+    }
+    .title{
+      margin: 55px 20px;
+      color: rgb(0, 153, 255);
     }
   }
   ul{
@@ -16,6 +21,7 @@
       flex-direction: row;
       padding: 10px;
       list-style: none;
+      color: rgb(0, 153, 255);
     }
   }
   .cart{

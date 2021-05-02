@@ -1,29 +1,40 @@
 import { useEffect, useState } from "react";
 import "./itemList.scss";
-import { Items } from "../items/items"
+import { Items } from "../items/items";
 
 export const ItemList = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
-      const res = await fetch(
-        "https://challenge-meli-backend.herokuapp.com/api/items?q=jardin"
-      );
-      const products = await res.json();
-      console.log(products.items);
-      setProducts(products.items);
+      try {
+        const res = await fetch(
+          "https://challenge-meli-backend.herokuapp.com/api/items?q=jardin"
+        );
+        const data = await res.json();
+        setProducts(data.items);
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
     };
     getProducts();
   }, []);
   return (
     <div className="catalog">
-      {products.length < 1 ? (
-        <p className="loadProduct">Cargando productos...</p>
-      ) : (
-        products.map((products) => (
-          <Items products = {products} />
+      {products ? (
+        products.map((product, index) => (
+          <Items
+            id={product.id}
+            key={index}
+            picture={product.picture}
+            title={product.title}
+            price={product.price}
+            category={product.category}
+          />
         ))
+      ) : (
+        <p>asdasdasdasdasd</p>
       )}
     </div>
   );
