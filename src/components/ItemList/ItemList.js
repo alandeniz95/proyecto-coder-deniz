@@ -3,7 +3,7 @@ import "./itemList.scss";
 import { Items } from "../items/items";
 
 export const ItemList = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(false);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -13,7 +13,7 @@ export const ItemList = () => {
         );
         const data = await res.json();
         setProducts(data.items);
-        console.log(data);
+        console.log(data.items);
       } catch (error) {
         console.error(error);
       }
@@ -23,18 +23,18 @@ export const ItemList = () => {
   return (
     <div className="catalog">
       {products ? (
-        products.map((product, index) => (
+        products.map((products, index) => (
           <Items
-            id={product.id}
+            id={products.id}
             key={index}
-            picture={product.picture}
-            title={product.title}
-            price={product.price}
-            category={product.category}
+            picture={products.picture}
+            title={products.title}
+            price={products.price}
+            condition={products.condition}
           />
         ))
       ) : (
-        <p>asdasdasdasdasd</p>
+        <p>Cargando productos</p>
       )}
     </div>
   );

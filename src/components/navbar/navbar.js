@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../../logo.jpg";
 import { CartWidget } from "./cartWidget";
 import "./navbar.scss";
@@ -8,10 +9,12 @@ export const Navbar = () => {
 
   return (
     <header className="navbar">
-      <div className="logo-name">
-        <img className="logo" src={logo} alt="Logo" />
-        <h3 className="title">{nameApp}</h3>
-      </div>
+      <Link to={"/"}>
+        <div className="logo-name">
+          <img className="logo" src={logo} alt="Logo" />
+          <h3 className="title">{nameApp}</h3>
+        </div>
+      </Link>
       <nav>
         <ul>
           {NAVIGATION.map((navigation) => (
