@@ -1,10 +1,11 @@
 .items{
   display: flex;
-  img{
-    width: 400px;
-    margin: 0 10px 15px;
-  }
+  margin: 0% 100px 20px;
   .title{
     width: 400px;
+    text-decoration: none;
+  }
+  li{
+    list-style: none;
   }
 }
