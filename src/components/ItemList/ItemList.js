@@ -9,11 +9,11 @@ export const ItemList = () => {
     const getProducts = async () => {
       try {
         const res = await fetch(
-          "https://challenge-meli-backend.herokuapp.com/api/items?q=jardin"
+          "https://5f3c95f36c11f80016d6f21e.mockapi.io/bitbuyer/items"
         );
         const data = await res.json();
-        setProducts(data.items);
-        console.log(data.items);
+        setProducts(data);
+        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -27,10 +27,9 @@ export const ItemList = () => {
           <Items
             id={products.id}
             key={index}
-            picture={products.picture}
-            title={products.title}
-            price={products.price}
-            condition={products.condition}
+            title={products.nombre}
+            price={products.precio}
+            comment={products.comentario}
           />
         ))
       ) : (

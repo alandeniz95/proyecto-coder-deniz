@@ -1,34 +1,36 @@
 import { ItemDetail } from "../itemDetail/itemDetail";
 import { useState, useEffect } from "react";
+import "./itemDetailContainer.scss"
 
 export const ItemDetailContainer = (props) => {
-  const [product, setProduct] = useState(false);
+  const [item, setItem] = useState(false);
   const id = props.match.params.id;
+  console.log(id);
 
   useEffect(() => {
     const getProduct = async () => {
       try {
         const res = await fetch(
-          `https://challenge-meli-backend.herokuapp.com/api/items?q=jardin/${id}`
+          `https://5f3c95f36c11f80016d6f21e.mockapi.io/bitbuyer/items/${id}`
         );
         const data = await res.json();
-        setProduct(data.items);
+        setItem(data);
+        console.log(data);
       } catch (error) {
         console.error(error);
       }
     };
     getProduct();
-  }, [id]);
+  }, []);
   return (
-    <div className="catalog">
-      {product ? (
-          <ItemDetail
-            id={product.id}
-            picture={product.picture}
-            title={product.title}
-            price={product.price}
-            condition={product.condition}
-          />
+    <div className="infoProduct">
+      {item ? (
+        <ItemDetail
+          id={item.id}
+          title={item.nombre}
+          price={item.precio}
+          comment={item.comentarios}
+        />
       ) : (
         <p>Cargando productos</p>
       )}

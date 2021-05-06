@@ -7,11 +7,10 @@ export const Items = (props) => {
       <div>
         <Link to={{ pathname: `/itemdetail/${props.id}` }}>
           <div className="items">
-            <img src={props.picture} />
             <h4>{props.title}</h4>
             <ul>
               <li>
-                <strong>Precio $ {props.price.amount}</strong>
+                <strong>Precio $ {props.price}</strong>
               </li>
             </ul>
           </div>

@@ -4,15 +4,15 @@ import "./itemListContainer.scss";
 export const ItemListContainer = () => {
   return (
     <div className="container">
-      <div>
+      <div className="slider">
         <p className="paragraph">
-          Bienvenida/o a nuestra tienda online, sientete libre de disfrutar todos
-          nuestros productos al mejor precio
+          Bienvenida/o a nuestra tienda online, sientete libre de disfrutar
+          todos nuestros productos al mejor precio
         </p>
       </div>
       <div>
         <h1>Catalogo</h1>
-        <ItemList className="card"/>
+        <ItemList />
       </div>
     </div>
   );
