@@ -16,10 +16,19 @@ export const Navbar = () => {
         </div>
       </Link>
       <nav>
-        <ul>
-          {NAVIGATION.map((navigation) => (
-            <li>{navigation}</li>
-          ))}
+        <ul className="links-list">
+          <Link to={"/"}>
+            <li className="links-link">{NAVIGATION[0]}</li>
+          </Link>
+          <Link to={"/"}>
+            <li className="links-link">{NAVIGATION[1]}</li>
+          </Link>
+          <Link to={"/"}>
+            <li className="links-link">{NAVIGATION[2]}</li>
+          </Link>
+          <Link to={"/"}>
+            <li className="links-link">{NAVIGATION[3]}</li>
+          </Link>
         </ul>
       </nav>
       <div className="cart">
