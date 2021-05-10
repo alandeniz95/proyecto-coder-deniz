@@ -2,6 +2,7 @@ import "./items.scss";
 import { Link } from "react-router-dom";
 
 export const Items = (props) => {
+  
   return (
     <div className="item">
       <div>

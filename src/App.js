@@ -2,6 +2,7 @@ import { Navbar } from "./components/navbar/navbar";
 import { ItemListContainer } from "./components/itemListContainer/itemListContainer";
 import { ItemDetailContainer } from "./components/itemDeatailContainer/itemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { CartWidget } from "./components/navbar/cartWidget";
 
 function App() {
 

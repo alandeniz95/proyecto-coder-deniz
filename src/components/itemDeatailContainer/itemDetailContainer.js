@@ -5,7 +5,10 @@ import "./itemDetailContainer.scss"
 export const ItemDetailContainer = (props) => {
   const [item, setItem] = useState(false);
   const id = props.match.params.id;
-  console.log(id);
+  
+  const handleClick = () =>{
+    
+  }
 
   useEffect(() => {
     const getProduct = async () => {
@@ -15,7 +18,6 @@ export const ItemDetailContainer = (props) => {
         );
         const data = await res.json();
         setItem(data);
-        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -30,6 +32,7 @@ export const ItemDetailContainer = (props) => {
           title={item.nombre}
           price={item.precio}
           comment={item.comentarios}
+          onAdd={handleClick}
         />
       ) : (
         <p>Cargando productos</p>

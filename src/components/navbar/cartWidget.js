@@ -5,7 +5,7 @@ export const CartWidget = () => {
   const [quantity, setQuantity] = useState(0);
   return (
     <div className="cart">
-      <img className="cart-icon" src={cart} alt="" />
+      <img className="cart-icon" src={cart} alt="basket" />
       <p className="cart-quantity">{quantity}</p>
     </div>
   );

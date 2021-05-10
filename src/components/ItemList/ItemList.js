@@ -13,7 +13,6 @@ export const ItemList = () => {
         );
         const data = await res.json();
         setProducts(data);
-        console.log(data);
       } catch (error) {
         console.error(error);
       }
