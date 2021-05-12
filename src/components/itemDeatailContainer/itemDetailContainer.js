@@ -1,4 +1,4 @@
-import { ItemDetail } from "../itemDetail/itemDetail";
+import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { useState, useEffect } from "react";
 import "./itemDetailContainer.scss"
 
@@ -23,17 +23,16 @@ export const ItemDetailContainer = (props) => {
       }
     };
     getProduct();
-  }, []);
+  }, [id]);
   return (
     <div className="infoProduct">
       {item ? (
         <ItemDetail
-          id={item.id}
-          title={item.nombre}
-          price={item.precio}
-          comment={item.comentarios}
-          onAdd={handleClick}
-        />
+        title={item.nombre}
+        price={item.precio}
+        category={item.categoria}
+        id={item.id}
+      />
       ) : (
         <p>Cargando productos</p>
       )}

@@ -1,11 +1,15 @@
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../logo.jpg";
+import { CartContext } from "../../Context/Context";
 import { CartWidget } from "./cartWidget";
+import logo from "../../logo.jpg";
 import "./navbar.scss";
 
-export const Navbar = () => {
+export const NavBar = () => {
   const nameApp = "Anthon Bakery";
   const NAVIGATION = ["Home", "Galería", "Productos", "Contacto"];
+  const [products, productsCount, addProduct, delProduct, getGrandTotal] =
+    useContext(CartContext);
 
   return (
     <header className="navbar">
@@ -15,7 +19,7 @@ export const Navbar = () => {
           <h3 className="title">{nameApp}</h3>
         </div>
       </Link>
-      <nav>
+      <nav className="navs">
         <ul className="links-list">
           <Link to={"/"}>
             <li className="links-link">{NAVIGATION[0]}</li>
@@ -31,9 +35,7 @@ export const Navbar = () => {
           </Link>
         </ul>
       </nav>
-      <div className="cart">
-        <CartWidget />
-      </div>
+      <CartWidget />
     </header>
   );
 };

@@ -1,22 +1,25 @@
-import { Navbar } from "./components/navbar/navbar";
-import { ItemListContainer } from "./components/itemListContainer/itemListContainer";
-import { ItemDetailContainer } from "./components/itemDeatailContainer/itemDetailContainer";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { CartWidget } from "./components/navbar/cartWidget";
+import React from "react";
+// import "./style.css";
+import { NavBar } from "./Components/NavBar/NavBar";
+import { ItemListContainer } from "./Components/ItemListContainer/ItemListContainer";
+import { ItemDetailContainer } from "./Components/ItemDeatailContainer/ItemDetailContainer";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { CartContextProvider } from "./Context/Context";
+import { Cart } from "./Components/Cart/Cart";
 
-function App() {
-
+export default function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Navbar />
-      </div>
-      <Switch>
-        <Route exact path="/" component={ItemListContainer} />
-        <Route path="/itemdetail/:id" component={ItemDetailContainer} />
-      </Switch>
-    </BrowserRouter>
+    <div>
+      <CartContextProvider>
+        <BrowserRouter>
+          <NavBar />
+          <Switch>
+            <Route exact path="/" component={ItemListContainer} />
+            <Route path="/itemdetail/:id" component={ItemDetailContainer} />
+            <Route path="/cart" component={Cart} />
+          </Switch>
+        </BrowserRouter>
+      </CartContextProvider>
+    </div>
   );
 }
-
-export default App;

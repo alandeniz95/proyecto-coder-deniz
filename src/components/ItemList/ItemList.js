@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import "./itemList.scss";
-import { Items } from "../items/items";
+import React, { useState, useEffect } from "react";
+import { Item } from "../Item/Item";
+import "./itemList.scss"
 
-export const ItemList = () => {
-  const [products, setProducts] = useState(false);
+export const  ItemList = (props) => {
+  const [items, setItems] = useState(false);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -12,7 +12,7 @@ export const ItemList = () => {
           "https://5f3c95f36c11f80016d6f21e.mockapi.io/bitbuyer/items"
         );
         const data = await res.json();
-        setProducts(data);
+        setItems(data);
       } catch (error) {
         console.error(error);
       }
@@ -21,19 +21,21 @@ export const ItemList = () => {
   }, []);
   return (
     <div className="catalog">
-      {products ? (
-        products.map((products, index) => (
-          <Items
-            id={products.id}
+      {items ? (
+        items.map((product, index) => (
+          <Item
+            id={product.id}
             key={index}
-            title={products.nombre}
-            price={products.precio}
-            comment={products.comentario}
+            title={product.nombre}
+            price={product.precio}
+            category={product.categoria}
           />
         ))
       ) : (
-        <p>Cargando productos</p>
+        <p>Trayendo información desde base de datos...</p>
       )}
     </div>
   );
-};
+}
+
+

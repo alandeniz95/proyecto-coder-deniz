@@ -1,12 +1,20 @@
-import { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import cart from "./images/cart.svg";
+import { CartContext } from "../../Context/Context";
+import "./navbar.scss";
 
 export const CartWidget = () => {
   const [quantity, setQuantity] = useState(0);
+  const [products, productsCount, addProduct, delProduct, getGrandTotal] =
+    useContext(CartContext);
+
   return (
     <div className="cart">
-      <img className="cart-icon" src={cart} alt="basket" />
-      <p className="cart-quantity">{quantity}</p>
+      <Link to={"/cart"}>
+        {productsCount()}
+        <img className="cartIcon" src={cart} alt="basket" />
+      </Link>
     </div>
   );
 };

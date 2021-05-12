@@ -1,29 +1,27 @@
-import { useEffect, useState } from "react";
-import "./itemCount.scss";
+import React, { useState, useEffect } from "react";
 
-export const ItemCount = () => {
-  const [number, setNumber] = useState(1);
-  const stock = 10;
+export const ItemCount = (props) => {
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (number >= stock) {
-      setNumber(stock);
+    if (count < 0) {
+      setCount(0);
     } else {
-      if (number <= 0) {
-        setNumber(1);
+      if (count > 10) {
+        setCount(10);
       }
     }
-  });
+    props.func(count);
+  }, [count]);
 
   return (
-    <div className="formCart">
-      <button className="btn" onClick={() => setNumber(number + 1)}>
-        +
-      </button>
-      {number}
-      <button className="btn" onClick={() => setNumber(number - 1)}>
-        -
-      </button>
+    <div>
+      <h4>{props.title}</h4>
+      <h4>Precio: {props.price}</h4>
+      <h4>Categoria: {props.category}</h4>
+      <input type="button" value="+" onClick={() => setCount(count + 1)} />
+      {count}
+      <input type="button" value="-" onClick={() => setCount(count - 1)} />
     </div>
   );
-};
+}
