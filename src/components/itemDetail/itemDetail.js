@@ -22,7 +22,7 @@ export const ItemDetail = (props) => {
       <input
         onClick={() => addProduct(props.title, count)}
         type="button"
-        value={`Agregar ${props.title} al carrito ${count}`}
+        value={`Agregar ${count} ${props.title} al carrito`}
       />
     </div>
   );

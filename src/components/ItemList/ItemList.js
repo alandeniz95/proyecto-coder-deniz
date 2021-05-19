@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Item } from "../Item/Item";
 import "./itemList.scss"
 
-export const  ItemList = (props) => {
+export const  ItemList = () => {
   const [items, setItems] = useState(false);
 
   useEffect(() => {

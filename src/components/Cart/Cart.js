@@ -7,18 +7,18 @@ export const Cart = () => {
   const [products, productsCount, addProduct, delProduct, getGrandTotal] =
     useContext(CartContext);
 
-  useEffect(() => {
-    console.log(products);
-  });
+  useEffect(() => {});
+
   return (
     <Fragment>
       <h3 className="WelcomeCart">Bienvenida/o al carrito de compras</h3>
       <div>
-        {products ? (
+        {products.length >= 1 ? (
           products.map((product) => (
             <div>
-              <p>Producto: {product.nombre}</p>
+              <p>Producto: {product.title}</p>
               <p>Cantidad:{product.quantity}</p>
+              <button onClick={delProduct}>Eliminar producto</button>
               <button onClick="#">Finalizar compra</button>
             </div>
           ))

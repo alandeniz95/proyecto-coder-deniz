@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 export const ItemCount = (props) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
-    if (count < 0) {
-      setCount(0);
+    if (count < 1) {
+      setCount(1);
     } else {
       if (count > 10) {
         setCount(10);
@@ -13,6 +13,7 @@ export const ItemCount = (props) => {
     }
     props.func(count);
   }, [count]);
+  
 
   return (
     <div>
@@ -24,4 +25,4 @@ export const ItemCount = (props) => {
       <input type="button" value="-" onClick={() => setCount(count - 1)} />
     </div>
   );
-}
+};
