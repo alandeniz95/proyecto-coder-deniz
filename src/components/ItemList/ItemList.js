@@ -17,7 +17,9 @@ export const ItemList = () => {
       }));
       setItems(data);
       setProducts(false);
-    });
+    }).catch(
+      (error) => console.error("Error al cargar los productos desde la base de datos" + error)
+    )
   }, []);
   return (
     <div className="catalog">

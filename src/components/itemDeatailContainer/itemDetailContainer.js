@@ -16,9 +16,8 @@ export const ItemDetailContainer = (props) => {
     .then((doc) =>{
       setItem({id: doc.id, ...doc.data()})
     }).catch(
-      console.error("Error en base de datos ")
+      (error) => console.error("Error al cargar los productos desde la base de datos" + error)
     )
-
   }, [productId]);
   return (
     <div className="infoProduct">
@@ -27,6 +26,8 @@ export const ItemDetailContainer = (props) => {
         title={item.title}
         price={item.price}
         id={item.id}
+        image={item.image}
+        description={item.description}
       />
       ) : (
         <p>Cargando productos</p>

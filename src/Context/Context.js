@@ -6,14 +6,14 @@ export const CartContext = React.createContext([]);
 export const CartContextProvider = (props) => {
   const [products, setProducts] = useState([]);
 
-  const addProduct = (product, quantity) => {
+  const addProduct = (product, quantity, image) => {
     if (products.length >= 1) {
       products[products.findIndex((prod) => prod.id === product.id)].quantity +=
         quantity;
       setProducts(products);
       return;
     }
-    setProducts([...products, { title: product, quantity: quantity }]);
+    setProducts([...products, { title: product, quantity: quantity}]);
   };
 
   const productsCount = () => {

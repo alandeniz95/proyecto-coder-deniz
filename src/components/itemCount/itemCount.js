@@ -19,7 +19,8 @@ export const ItemCount = (props) => {
     <div>
       <h4>{props.title}</h4>
       <h4>Precio: {props.price}</h4>
-      <h4>Categoria: {props.category}</h4>
+      <p>{props.title} {props.description}</p>
+      <img src={props.image} alt={props.title} />
       <input type="button" value="+" onClick={() => setCount(count + 1)} />
       {count}
       <input type="button" value="-" onClick={() => setCount(count - 1)} />

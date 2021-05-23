@@ -17,7 +17,8 @@ export const ItemDetail = (props) => {
         func={giveCount}
         title={props.title}
         price={props.price}
-        category={props.category}
+        image={props.image}
+        description={props.description}
       />
       <input
         onClick={() => addProduct(props.title, count)}

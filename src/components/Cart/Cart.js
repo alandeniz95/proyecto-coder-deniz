@@ -17,9 +17,9 @@ export const Cart = () => {
           products.map((product) => (
             <div>
               <p>Producto: {product.title}</p>
+              {/* <img src={product.image} alt={product.title} /> */}
               <p>Cantidad:{product.quantity}</p>
               <button onClick={delProduct}>Eliminar producto</button>
-              <button onClick="#">Finalizar compra</button>
             </div>
           ))
         ) : (
@@ -35,3 +35,5 @@ export const Cart = () => {
     </Fragment>
   );
 };
+
+// Falta mostrar imagen del producto en Cart, revisar el context...
