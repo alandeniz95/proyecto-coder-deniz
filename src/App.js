@@ -5,6 +5,7 @@ import { ItemDetailContainer } from "./Components/ItemDeatailContainer/ItemDetai
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { CartContextProvider } from "./Context/Context";
 import { Cart } from "./Components/Cart/Cart";
+import "./Components/firebase/firebase";
 
 export default function App() {
   return (

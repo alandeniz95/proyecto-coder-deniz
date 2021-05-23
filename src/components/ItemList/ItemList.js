@@ -1,41 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { Item } from "../Item/Item";
-import "./itemList.scss"
+import "./itemList.scss";
+import { getFirestore } from "../firebase/firebase";
 
-export const  ItemList = () => {
-  const [items, setItems] = useState(false);
+export const ItemList = () => {
+  const [items, setItems] = useState([]);
+  const [products, setProducts] = useState(true);
 
   useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const res = await fetch(
-          "https://5f3c95f36c11f80016d6f21e.mockapi.io/bitbuyer/items"
-        );
-        const data = await res.json();
-        setItems(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getProducts();
+    const db = getFirestore();
+    const items = db.collection("items").where("stock", ">=", 1); 
+    items.get().then((snapshot) => {
+      const data = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setItems(data);
+      setProducts(false);
+    });
   }, []);
   return (
     <div className="catalog">
-      {items ? (
+      {products ? (
+        <p>Trayendo información desde base de datos...</p>
+      ) : (
         items.map((product, index) => (
           <Item
             id={product.id}
             key={index}
-            title={product.nombre}
-            price={product.precio}
-            category={product.categoria}
+            title={product.title}
+            price={product.price}
+            image={product.image}
           />
         ))
-      ) : (
-        <p>Trayendo información desde base de datos...</p>
       )}
     </div>
   );
-}
-
-
+};

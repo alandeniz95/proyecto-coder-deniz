@@ -1,36 +1,31 @@
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { useState, useEffect } from "react";
 import "./itemDetailContainer.scss"
+import { getFirestore } from "../firebase/firebase"
 
 export const ItemDetailContainer = (props) => {
   const [item, setItem] = useState(false);
-  const id = props.match.params.id;
-  
-  const handleClick = () =>{
-    
-  }
+  const productId = props.match.params.id;
+
 
   useEffect(() => {
-    const getProduct = async () => {
-      try {
-        const res = await fetch(
-          `https://5f3c95f36c11f80016d6f21e.mockapi.io/bitbuyer/items/${id}`
-        );
-        const data = await res.json();
-        setItem(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getProduct();
-  }, [id]);
+    const db = getFirestore()
+    const itemCollection = db.collection("items")
+    const item = itemCollection.doc(productId)
+    item.get()
+    .then((doc) =>{
+      setItem({id: doc.id, ...doc.data()})
+    }).catch(
+      console.error("Error en base de datos ")
+    )
+
+  }, [productId]);
   return (
     <div className="infoProduct">
       {item ? (
         <ItemDetail
-        title={item.nombre}
-        price={item.precio}
-        category={item.categoria}
+        title={item.title}
+        price={item.price}
         id={item.id}
       />
       ) : (
