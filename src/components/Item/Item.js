@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./items.scss";
 
 export const Item = (props) => { 
+  
   return (
     <div className="item">
       <div>

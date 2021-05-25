@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { CartContext } from "../../Context/Context";
 import { ItemCount } from "../ItemCount/ItemCount";
 
@@ -10,7 +10,7 @@ export const ItemDetail = (props) => {
   const giveCount = (i) => {
     setCount(i);
   };
-
+  
   return (
     <div>
       <ItemCount

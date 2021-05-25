@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import {getFirestore} from "../Components/firebase/firebase"
 
 export const CartContext = React.createContext([]);
 
 export const CartContextProvider = (props) => {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState ([])
 
-  const addProduct = (product, quantity, image) => {
-    if (products.length >= 1) {
-      products[products.findIndex((prod) => prod.id === product.id)].quantity +=
-        quantity;
-      setProducts(products);
-      return;
+  const addProduct = (product, quantity) => {
+    const newCart = products.findIndex((item) => item.title === product);
+    if (newCart >= 0) {
+      const newItem = products;
+      newItem[newCart].quantity += quantity;
+      setProducts(newItem);
+    } else {
+      const newItemCart = {
+        title: product,
+        quantity: quantity,
+      };
+      setProducts([...products, newItemCart]);
     }
-    setProducts([...products, { title: product, quantity: quantity}]);
   };
 
   const productsCount = () => {
@@ -21,15 +28,17 @@ export const CartContextProvider = (props) => {
   };
 
   const delProduct = (id) => {
-    products.splice(
-      products.findIndex((prod) => prod.id === id),
+    const newCart = products;
+    newCart.splice(
+      newCart.findIndex((prod) => prod.id === id),
       1
     );
-    setProducts([...products]);
+    setProducts([...newCart]);
   };
 
   const getGrandTotal = () => {
-    return products.reduce(
+    const newCart = products;
+    return newCart.reduce(
       (acc, product) => (acc += product.price * product.quantity),
       0
     );

@@ -9,17 +9,22 @@ export const ItemList = () => {
 
   useEffect(() => {
     const db = getFirestore();
-    const items = db.collection("items").where("stock", ">=", 1); 
-    items.get().then((snapshot) => {
-      const data = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setItems(data);
-      setProducts(false);
-    }).catch(
-      (error) => console.error("Error al cargar los productos desde la base de datos" + error)
-    )
+    const items = db.collection("items").where("stock", ">=", 1);
+    items
+      .get()
+      .then((snapshot) => {
+        const data = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setItems(data);
+        setProducts(false);
+      })
+      .catch((error) =>
+        console.error(
+          "Error al cargar los productos desde la base de datos" + error
+        )
+      );
   }, []);
   return (
     <div className="catalog">
