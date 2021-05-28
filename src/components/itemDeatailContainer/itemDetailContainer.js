@@ -25,7 +25,7 @@ export const ItemDetailContainer = (props) => {
   return (
     <div className="infoProduct">
       {item ? (
-        <ItemDetail
+        <ItemDetail 
           title={item.title}
           price={item.price}
           id={item.id}

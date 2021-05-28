@@ -1,43 +1,43 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
-import {getFirestore} from "../Components/firebase/firebase"
 
 export const CartContext = React.createContext([]);
 
 export const CartContextProvider = (props) => {
-  const [products, setProducts] = useState([]);
-  const [cart, setCart] = useState ([])
-
-  const addProduct = (product, quantity) => {
-    const newCart = products.findIndex((item) => item.title === product);
+  const [cart, setCart] = useState([]);
+  
+  const addProduct = (product, quantity, id, price) => {
+    const newCart = cart.findIndex((item) => item.title === product);
     if (newCart >= 0) {
-      const newItem = products;
+      const newItem = cart;
       newItem[newCart].quantity += quantity;
-      setProducts(newItem);
+      setCart(newItem);
     } else {
       const newItemCart = {
-        title: product,
         quantity: quantity,
+        title: product,
+        id: id,
+        price: price,
       };
-      setProducts([...products, newItemCart]);
+      setCart([...cart, newItemCart]);
     }
   };
 
   const productsCount = () => {
-    return products.reduce((acc, product) => (acc += product.quantity), 0);
+    return cart.reduce((acc, product) => (acc += product.quantity), 0);
   };
 
   const delProduct = (id) => {
-    const newCart = products;
+    const newCart = cart;
     newCart.splice(
       newCart.findIndex((prod) => prod.id === id),
       1
     );
-    setProducts([...newCart]);
+    setCart([...newCart]);
   };
 
   const getGrandTotal = () => {
-    const newCart = products;
+    const newCart = cart;
     return newCart.reduce(
       (acc, product) => (acc += product.price * product.quantity),
       0
@@ -46,7 +46,7 @@ export const CartContextProvider = (props) => {
 
   return (
     <CartContext.Provider
-      value={[products, productsCount, addProduct, delProduct, getGrandTotal]}
+      value={[cart, productsCount, addProduct, delProduct]}
     >
       {props.children}
     </CartContext.Provider>

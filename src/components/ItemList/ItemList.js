@@ -5,7 +5,7 @@ import { getFirestore } from "../firebase/firebase";
 
 export const ItemList = () => {
   const [items, setItems] = useState([]);
-  const [products, setProducts] = useState(true);
+  const [cart, setCart] = useState(true);
 
   useEffect(() => {
     const db = getFirestore();
@@ -18,17 +18,18 @@ export const ItemList = () => {
           ...doc.data(),
         }));
         setItems(data);
-        setProducts(false);
+        setCart(false);
       })
       .catch((error) =>
-        console.error(
-          "Error al cargar los productos desde la base de datos" + error
+      console.error(
+        "Error al cargar los productos desde la base de datos" + error
         )
-      );
-  }, []);
+        );
+      }, []);
+      
   return (
     <div className="catalog">
-      {products ? (
+      {cart ? (
         <p>Trayendo información desde base de datos...</p>
       ) : (
         items.map((product, index) => (

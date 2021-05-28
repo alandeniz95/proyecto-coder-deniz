@@ -8,7 +8,7 @@ import "./navbar.scss";
 export const NavBar = () => {
   const nameApp = "Anthon Bakery";
   const NAVIGATION = ["Home", "Galería", "Productos", "Contacto"];
-  const [products, productsCount, addProduct, delProduct, getGrandTotal] =
+  const [cart, productsCount, addProduct, delProduct, getGrandTotal] =
     useContext(CartContext);
 
   return (

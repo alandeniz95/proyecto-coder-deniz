@@ -4,7 +4,7 @@ import { ItemCount } from "../ItemCount/ItemCount";
 
 export const ItemDetail = (props) => {
   const [count, setCount] = useState(0);
-  const [products, productsCount, addProduct, delProduct, getGrandTotal] =
+  const [cart, productsCount, addProduct, delProduct, getGrandTotal] =
     useContext(CartContext);
 
   const giveCount = (i) => {
@@ -21,7 +21,7 @@ export const ItemDetail = (props) => {
         description={props.description}
       />
       <input
-        onClick={() => addProduct(props.title, count)}
+        onClick={() => addProduct(props.title, count, props.price, props.id)}
         type="button"
         value={`Agregar ${count} ${props.title} al carrito`}
       />

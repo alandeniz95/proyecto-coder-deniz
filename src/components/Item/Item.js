@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./items.scss";
 
 export const Item = (props) => { 
-  
+
   return (
     <div className="item">
       <div>
@@ -12,7 +12,6 @@ export const Item = (props) => {
           <li>Precio: {props.price}</li>
           <img src={props.image} alt="{image}"></img>
         </Link>
-        <hr />
       </div>
     </div>
   );
