@@ -55,7 +55,7 @@ export const Cart = () => {
           ))
         ) : (
           <h2 className="messajeCart">
-            Aún no hay productos en el carrito, ve al inicio{" "}
+            Aún no hay productos en el carrito, ve al{" "}
             <Link to="/" value="inicio">
               Inicio
             </Link>{" "}

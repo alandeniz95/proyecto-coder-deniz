@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
-import { CartContext } from "../../Context/Context";
+// import { CartContext } from "../../Context/Context";
 import { ItemCount } from "../ItemCount/ItemCount";
 
 export const ItemDetail = (props) => {
   const [count, setCount] = useState(0);
-  const [cart, productsCount, addProduct, delProduct, getGrandTotal] =
-    useContext(CartContext);
+  // const [cart, productsCount, addProduct, delProduct, getGrandTotal] =
+  //   useContext(CartContext);
 
   const giveCount = (i) => {
     setCount(i);
@@ -20,11 +20,11 @@ export const ItemDetail = (props) => {
         image={props.image}
         description={props.description}
       />
-      <input
+      {/* <input
         onClick={() => addProduct(props.title, count, props.price, props.id)}
         type="button"
         value={`Agregar ${count} ${props.title} al carrito`}
-      />
+      /> */}
     </div>
   );
 };

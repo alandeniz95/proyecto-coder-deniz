@@ -8,8 +8,8 @@ export const Item = (props) => {
     <div className="item">
       <div>
         <Link to={{ pathname: `/itemdetail/${props.id}` }}>
-          <h5>{props.title}</h5>
-          <li>Precio: {props.price}</li>
+          <h2>{props.title}</h2>
+          <h5>Precio: {props.price}</h5>
           <img src={props.image} alt="{image}"></img>
         </Link>
       </div>

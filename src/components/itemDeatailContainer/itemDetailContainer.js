@@ -33,7 +33,7 @@ export const ItemDetailContainer = (props) => {
           description={item.description}
         />
       ) : (
-        <p>Cargando productos</p>
+        <p className="loading">Cargando producto...</p>
       )}
     </div>
   );

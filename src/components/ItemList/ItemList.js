@@ -30,7 +30,7 @@ export const ItemList = () => {
   return (
     <div className="catalog">
       {cart ? (
-        <p>Trayendo información desde base de datos...</p>
+        <p>Trayendo productos desde base de datos...</p>
       ) : (
         items.map((product, index) => (
           <Item

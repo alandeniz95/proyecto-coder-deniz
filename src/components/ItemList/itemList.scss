@@ -1,3 +1,9 @@
 .catalog{
-  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    p{
+        font-size: 80px;
+        text-align: center;
+    }
 }
