@@ -1,0 +1,41 @@
+@import "../../../Size.scss";
+
+.notFoundPage{
+    display: flex;
+    justify-content: center;
+    background-image: url("../../../images/pageNotFound.jpg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: initial;
+    height: auto;
+    p{
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+        width: 500px;
+        margin: 360px 400px;
+    }
+    .btnToHome{
+       height: auto;
+       position: absolute;
+       margin-top: 460px;
+    }
+}
+
+
+@media (max-width: 767.98px){
+    .notFoundPage{
+        background-position-x: center;
+        background-size: 100%;
+        flex-wrap: wrap;
+        height: auto;
+        p{
+            margin: 180px 0;
+            width: 80%;
+            text-align: center;
+        }
+        .btnToHome{
+            margin-top: 370px;
+        }
+    }
+
+}

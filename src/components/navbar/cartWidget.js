@@ -1,20 +1,28 @@
-import React, { useContext, useEffect, useState } from "react";
+import cartIcon from "../../images/cart.svg";
+import { CartContext } from "../../Context/cartContext";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import basket from "./images/cart.svg";
-import { CartContext } from "../../Context/Context";
-import "./navbar.scss";
 
 export const CartWidget = () => {
-  const [quantity, setQuantity] = useState(0);
-  const [cart, productsCount, addProduct, delProduct, getGrandTotal] =
-    useContext(CartContext);
+  const cartQuantity = useContext(CartContext);
+  console.log(cartQuantity);
 
   return (
-    <div className="cart">
-      <Link to={"/cart"}>
-        {productsCount()}
-        <img className="cartIcon" src={basket} alt="basket" />
-      </Link>
+    <div className="cartWidhetMenu collapse navbar-collapse" id="navbarText">
+      <ul>
+        <li>
+          <Link to={"/cart"}>
+            <img src={cartIcon} alt="cart icon" />
+            {cartQuantity.cartQuantity >= 1 ? (
+              <span className="cartCountTrue">{cartQuantity.cartQuantity}</span>
+            ) : (
+              <span className="cartCountFalse">
+                {cartQuantity.cartQuantity}
+              </span>
+            )}
+          </Link>
+        </li>
+      </ul>
     </div>
   );
 };

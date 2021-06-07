@@ -1,25 +1,31 @@
-import React from "react";
-import { NavBar } from "./Components/NavBar/NavBar";
-import { ItemListContainer } from "./Components/ItemListContainer/ItemListContainer";
-import { ItemDetailContainer } from "./Components/ItemDeatailContainer/ItemDetailContainer";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
-import { CartContextProvider } from "./Context/Context";
-import { Cart } from "./Components/Cart/Cart";
-import "./Components/firebase/firebase";
+import "./App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function App() {
+import { Navbar } from "./Components/NavBar/Navbar";
+import { ItemListContainer } from "./Components/Item/ItemListContainer";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { ItemDetailContainer } from "./Components/Item/ItemDetailContainer";
+import { Home } from "./Components/page/Home";
+import { Cart } from "./Components/Cart/Cart";
+import { CartProvider } from "./Context/cartContext";
+import { notFoundPage } from "./Components/page/notFound";
+import { Footer } from "./Components/page/Footer";
+
+function App() {
   return (
-    <div>
-      <CartContextProvider>
-        <BrowserRouter>
-          <NavBar />
-          <Switch>
-            <Route exact path="/" component={ItemListContainer} />
-            <Route path="/itemdetail/:id" component={ItemDetailContainer} />
-            <Route path="/cart" component={Cart} />
-          </Switch>
-        </BrowserRouter>
-      </CartContextProvider>
-    </div>
+    <BrowserRouter>
+      <CartProvider>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/galery" component={notFoundPage} />
+          <Route path="/category/:products" component={ItemListContainer} />
+          <Route path="/producto/:productId" component={ItemDetailContainer} />
+          <Route path="/cart" component={Cart} />
+        </Switch>
+        <Footer />
+      </CartProvider>
+    </BrowserRouter>
   );
 }
+export default App;

@@ -1,0 +1,29 @@
+@import "../../../Size.scss";
+@import "../../../Color.scss";
+
+.product{
+  margin-bottom: $extraLarge;
+}
+.img-fluid{
+    margin-top: 100px;
+    border: 2px solid;
+    border-color: $ligthtBlue;
+    border-radius: $extraSmall;
+}
+.product-detail {
+    padding-top: 20%;
+    h3 {
+      color: $ligthtBlue;
+    }
+  
+    h4 {
+      padding-bottom: $large;
+      color: $ligthtBlue;
+    }
+  }
+
+  @media (max-width: 767.98px){
+    .img-fluid{
+      margin-top: 0;
+    }
+  }

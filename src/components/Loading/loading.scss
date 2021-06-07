@@ -1,0 +1,15 @@
+@import "../../Size.scss";
+
+.loading-container {
+    margin: $extraLarge auto;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        width: 50%;
+    }
+}

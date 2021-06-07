@@ -1,0 +1,45 @@
+@import "Color.scss";
+@import "Size.scss";
+
+
+.container-products {
+  display: flex;
+  justify-content: center;
+  margin: $extraLarge 0;
+  min-height: 500px;
+}
+
+.products-row {
+  display: flex;
+  justify-content: space-around;
+  margin: $extraLarge 0;
+}
+
+.product-image-container {
+  padding: $extraLarge;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.border {
+  border-left: 1px solid $gray;
+}
+
+.title-itemlist {
+  display: flex;
+  justify-content: center;
+  margin: $extraLarge auto;
+  text-align: center;
+  color: $ligthtBlue;
+}
+
+.empty-list {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  h2 {
+    text-align: center;
+  }
+}
+

@@ -1,16 +1,16 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import "./items.scss";
+import "./styles/items.scss"
 
-export const Item = (props) => { 
-
+export const Item = (item) => {
   return (
-    <div className="item">
-      <div>
-        <Link to={{ pathname: `/itemdetail/${props.id}` }}>
-          <h2>{props.title}</h2>
-          <h5>Precio: {props.price}</h5>
-          <img src={props.image} alt="{image}"></img>
+    <div className="col-lg-6 col-sm-12">
+      <div className="product-card">
+        <Link to={`/producto/${item.id}`}>
+          <div className="card-content">
+            <img src={item.image} alt={item.title} />
+            <h4>{item.title}</h4>
+            <h5>${item.price}</h5>
+          </div>
         </Link>
       </div>
     </div>

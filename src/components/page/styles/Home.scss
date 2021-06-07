@@ -1,0 +1,35 @@
+@import "../../../Size.scss";
+@import "../../../Color.scss";
+
+.infoAnthon {
+    display: flex;
+    align-items: center;
+    .descriptionOfAnthon {
+        margin: 50px;
+    }
+    .socialReds {
+        margin: 5px;
+        .logoIg,
+        .logoWhats {
+            width: 50px;
+            margin: 0 10px;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .infoAnthon {
+        display: flex;
+        flex-direction: column;
+        .logoAnthon {
+            width: 100%;
+        }
+        h3 {
+            padding: $medium;
+        }
+        p {
+            padding: 0;
+            width: 100%;
+        }
+    }
+}

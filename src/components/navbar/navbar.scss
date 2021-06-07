@@ -1,35 +1,83 @@
-.navbar {
-  display: flex;
-  justify-content: space-around;
-  .logo-name {
+@import "../../Color.scss";
+@import "../../Size.scss";
+
+nav {
+  text-transform: uppercase;
+  .brand {
     display: flex;
-    margin: 20px;
-    margin-left: -40px;
     .logo {
-      width: 80px;
-      height: 80px;
+      width: 100px;
     }
-    .title {
-      text-decoration: none;
-      margin: 25px;
+    .appName {
+      color: $ligthtBlue;
+      margin: 0 $extraSmall;
+      margin-top: 60px;
+      font-weight: bold;
+    }
+    .appName:hover {
+      color: $orange;
     }
   }
-  .navs {
-    margin: 20px;
-    display: flex;
-    .links-list {
-      display: flex;
-      flex-direction: row;
-      .links-link {
-        list-style: none;
-        margin: 0px 10px;
-      }
+  
+  .navbar-Link {
+    margin: 0 auto;
+  }
+  ul {
+    list-style: none;
+  }
+  .nav-item {
+    margin: 0 $extraLarge;
+  }
+  .navlink {
+    color: $ligthtBlue;
+    text-decoration: none;
+  }
+  .navlink:hover {
+    color: $orange;
+    text-decoration: none;
+  }
+  .nav-active {
+    color: $orange;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+.cartWidhetMenu {
+  ul {
+    img {
+      width: 35px;
+      margin-right: $extraSmall;
+    }
+    .cartCountFalse {
+      background: $orange;
+      color: $white;
+      padding: $extraSmall $small;
+      border-radius: 50%;
+    }
+    .cartCountTrue {
+      background: $green;
+      color: $ligthtBlue;
+      padding: $extraSmall $small;
+      border-radius: 50%;
     }
   }
 }
-.cart{
-  margin: 20px;
- .cartIcon{
-   width: 40px;
- }
+
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .navbar{
+    display: flex;
+    width: 100%;
+    .logo{
+      width:10px;
+    }
+    .btn-collapse{
+      height: auto;
+    }
+    .nav-item{
+      margin: $extraSmall $extraLarge;
+    }
+  }
 }

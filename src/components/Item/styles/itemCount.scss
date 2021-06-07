@@ -1,0 +1,43 @@
+@import "../../../Color.scss";
+@import "../../../Size.scss";
+
+.container-addItems {
+  display: inline-flex;
+  justify-content: center;
+  .counter {
+    width: 100px;
+    display: flex;
+    margin: auto;
+    height: $extraLarge;
+    align-items: center;
+    border-radius: $small;
+    margin-right: $medium;
+    background-color: $ligthtGrey;
+  }
+  .addToCart {
+    display: flex;
+    .btn-addToCart {
+      border: none;
+      color: $white;
+      
+      height: $extraLarge;
+      border-radius: $small;
+      font-size: $medium;
+      text-transform: uppercase;
+    }
+  }
+  .btn-count,
+  .count {
+    border: none;
+    margin: $small auto;
+    background-color: transparent;
+    font-size: $large;
+    color: $ligthtBlue;
+  }
+}
+
+@media (min-width: 768.02px){
+  .btn-addToCart{
+    padding: $extraSmall $large;
+  }
+}

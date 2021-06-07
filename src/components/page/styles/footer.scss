@@ -1,0 +1,18 @@
+@import "../../../Color.scss";
+@import "../../../Size.scss";
+
+footer{
+    height: 150px;
+    background-color: $gray;
+    .copyright, .designBy{
+        margin: $medium 0;
+        color: $ligthtGrey;
+        a{
+            color: $green;
+            text-decoration: none;
+        }
+    }
+    .designBy{
+        margin: 50px $extraSmall;
+    }
+}

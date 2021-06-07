@@ -5,18 +5,20 @@ export const CartContext = React.createContext([]);
 
 export const CartContextProvider = (props) => {
   const [cart, setCart] = useState([]);
+
   
   const addProduct = (product, quantity, id, price) => {
-    const newCart = cart.findIndex((item) => item.title === product);
-    if (newCart >= 0) {
-      const newItem = cart;
+    const newItem = [...cart];
+    const newCart = cart.findIndex((item) => item.id === id);
+    console.log(cart);
+    if (newCart > 0) {
       newItem[newCart].quantity += quantity;
       setCart(newItem);
     } else {
       const newItemCart = {
         quantity: quantity,
         title: product,
-        id: id,
+        id: id, 
         price: price,
       };
       setCart([...cart, newItemCart]);

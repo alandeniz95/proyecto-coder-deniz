@@ -1,0 +1,23 @@
+@import "../../../Size.scss";
+@import "../../../Color.scss";
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    padding: $large;
+    margin: $small;
+    box-shadow: 0 $extraSmall $small 0 rgba(207, 203, 203, 0.5);
+}
+
+.card-content {
+    text-align: center;
+    img {
+        width: 100%;
+        border-radius: $extraSmall;
+    }
+    h5,
+    h4 {
+        color: $ligthtBlue;
+        margin-top: $small;
+    }
+}

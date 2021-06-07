@@ -1,0 +1,14 @@
+@import "../../Color.scss";
+@import "../../Size.scss";
+
+.inputLabel {
+    justify-content: center;
+    label {
+        margin-top: 10px;
+        color: $black;
+    }
+    input {
+        width: 80%;
+        padding: 7px;
+    }
+}

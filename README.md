@@ -1,3 +1,6 @@
+Proyecto de E-commerce creado en React para el curso de Coderhouse:
+Esta app comercializa pasteles iconicos de diferentes regiones, podes visitar la cuenta de Instagram y seguir al pastelero
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
