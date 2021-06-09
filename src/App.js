@@ -1,6 +1,3 @@
-import "./App.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
-
 import { Navbar } from "./Components/NavBar/Navbar";
 import { ItemListContainer } from "./Components/Item/ItemListContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -10,6 +7,8 @@ import { Cart } from "./Components/Cart/Cart";
 import { CartProvider } from "./Context/cartContext";
 import { notFoundPage } from "./Components/page/notFound";
 import { Footer } from "./Components/page/Footer";
+import "./App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

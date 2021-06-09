@@ -44,6 +44,9 @@
     display: flex;
     flex-wrap: wrap;
     margin: $medium;
+    .priceTotal{
+        margin-top: $extraLarge;        
+    }
 }
 
 .items-head {
@@ -77,6 +80,13 @@
             text-align: center;
         }
     }
+}
+.item-image:hover{
+    border: 2px solid;
+    border-color: $ligthtBlue;
+    border-radius: $small;
+    transform:scale(1.03);
+    transition: 500ms;
 }
 
 .btn-delProduct {

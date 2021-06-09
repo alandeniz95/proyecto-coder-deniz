@@ -17,13 +17,10 @@
   .addToCart {
     display: flex;
     .btn-addToCart {
+      justify-content: start;
       border: none;
-      color: $white;
-      
       height: $extraLarge;
-      border-radius: $small;
-      font-size: $medium;
-      text-transform: uppercase;
+      border-radius: 5px;
     }
   }
   .btn-count,

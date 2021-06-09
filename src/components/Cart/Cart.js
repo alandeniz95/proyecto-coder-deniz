@@ -7,7 +7,6 @@ import firebase from "firebase/app";
 import { CartItem } from "./CartItem";
 import anthon from "../../images/anthon.svg";
 import "./cart.scss";
-import { CardGroup } from "reactstrap";
 
 export const Cart = () => {
   const { cart, clearCart, setCart } = useContext(CartContext);
@@ -62,9 +61,11 @@ export const Cart = () => {
 
   const handleShipping = (e) => {
     e.preventDefault();
-    [name.trim(), email.trim(), phone.trim()].includes("")
-      ? alert("Debes completar los datos para finalizar la compra")
-      : handleFinishBuy();
+    [name.trim(), email.trim(), phone.trim()].includes("") ? (
+      alert("Completa los datos para continuar con la compra")
+    ) : (
+      handleFinishBuy()
+    );
   };
 
   const orderCart = () => {
@@ -86,8 +87,6 @@ export const Cart = () => {
     ordersCollection.add(newOrder).then(({ id }) => {
       setOrder(id);
     });
-
-    alert(`Compra realizada con éxito`);
   };
 
   return (

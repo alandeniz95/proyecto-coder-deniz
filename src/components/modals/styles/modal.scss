@@ -1,0 +1,13 @@
+@import "../../../Color.scss";
+@import "../../../Size.scss";
+
+.btnSuccess {
+  display: flex;
+  position: absolute;
+  border: none;
+  justify-content: start;
+  margin: -20px;
+  height: $extraLarge;
+  width: 190px;
+  text-transform: uppercase;
+}

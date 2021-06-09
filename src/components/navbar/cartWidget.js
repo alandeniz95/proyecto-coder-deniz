@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 export const CartWidget = () => {
   const cartQuantity = useContext(CartContext);
-  console.log(cartQuantity);
 
   return (
     <div className="cartWidhetMenu collapse navbar-collapse" id="navbarText">

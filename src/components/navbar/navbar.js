@@ -4,7 +4,7 @@ import { CartWidget } from "./CartWidget";
 import { NavLink } from "react-router-dom";
 import logoAnthon from "../../images/logoAnthon.jpg";
 
-const nameApp = "Anthon Bakery";
+export const nameApp = "Anthon Bakery";
 const NAVIGATION = ["Home", "Galería", "Productos"];
 export const Navbar = () => {
   return (

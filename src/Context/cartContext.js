@@ -9,7 +9,6 @@ export const CartProvider = ({ children }) => {
   const addToCart = (item, quantity) => {
     const newCart = [...cart];
     const findItem = isInCart(item);
-    
 
     if (findItem) {
       newCart[newCart.findIndex((prod) => prod.id === item.id)].quantity +=
@@ -23,8 +22,7 @@ export const CartProvider = ({ children }) => {
   };
   const isInCart = (item) => cart.find((product) => product.id === item.id);
 
-  useEffect(() => {
-  }, [cart]);
+  useEffect(() => {}, [cart]);
 
   const delProduct = (itemId) => {
     const newCart = cart.filter((item) => item.id !== itemId);
@@ -34,6 +32,10 @@ export const CartProvider = ({ children }) => {
   const clearCart = () => {
     setCart([]);
   };
+
+  const totalCartPrice = () => {
+    return cart.reduce((total, currentItem) => (total += currentItem.price * currentItem.quantity), 0)
+  }
 
   useEffect(() => {
     setCartQuantity(cart.length);
@@ -48,6 +50,7 @@ export const CartProvider = ({ children }) => {
         cartQuantity,
         clearCart,
         setCart,
+        totalCartPrice,
       }}
     >
       {children}
